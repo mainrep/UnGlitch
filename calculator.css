@@ -1,0 +1,73 @@
+body
+{
+    background-color: #0F111A;
+    font-family:'Nunito', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+    color: #E2E8F0;
+}
+.SpacedWord
+{
+    margin-left: 100px;
+}
+a, a:visited, a:hover, a:active 
+{
+    color: inherit;
+    text-decoration: inherit;
+}
+.logo-link 
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 40px; 
+}
+.logo-link img 
+{
+    height: 100%;
+    width: auto;
+    display: block;
+}
+div.Header
+{
+    display: flex;
+    align-items: center;
+    background-color: #0d1117;
+    font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 14px; 
+    border-bottom: 1.5px solid #30363d;
+    margin-bottom: 1px;
+}
+
+span.AppName
+{
+    letter-spacing: -0.025em;
+    line-height: 1;
+}
+nav
+{
+    display: grid;
+    grid-auto-flow: column;
+    background-color: #1A1C29;
+    gap: calc(899/3);
+}
+nav.NavigationBar {
+  display: flex;
+  justify-content: space-around; /* Distributes links with equal space around them */
+  align-items: center;           /* Centers all links vertically inside the nav bar */
+  padding: 12px 0;               /* Gives the navbar some breathing room top/bottom */
+  width: 100%;                   /* Ensures it stretches across the screen */
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+}
+nav.NavigationBar a {
+  display: inline-flex;          /* Keeps the link inline but allows flex alignment */
+  align-items: center;           /* Vertically centers the text and the icon */
+  gap: 8px;                      /* Puts a clean 8px gap between the text and icon */
+  text-decoration: none;         /* Optional: removes default underline */
+}
+div.Title
+{
+    line-height: 1.6;
+}

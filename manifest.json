@@ -1,0 +1,21 @@
+{
+  "name": "UnGlitch",
+  "short_name": "UnGlitch",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0F111A",
+  "theme_color": "#0F111A",
+  "description": "An application to help users track their environmental impact while using devices, and find ways to repair old ones.",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
