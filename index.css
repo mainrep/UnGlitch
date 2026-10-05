@@ -76,8 +76,8 @@ nav.NavigationBar a {
   flex: 2;
   gap: 8px;                      /* Puts a clean 8px gap between the text and icon */
 }
-.NavBar:hover .SpacedWord
-.NavBar:hover img.icons
+.NavBar:hover .SpacedWord,
+.NavBar:hover img.icons 
 {
     scale: 1.05;
 }
