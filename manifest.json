@@ -1,7 +1,7 @@
 {
   "name": "UnGlitch",
   "short_name": "UnGlitch",
-  "start_url": "/index.html",
+  "start_url": "https://mainrep.github.io/UnGlitch/index.html",
   "display": "standalone",
   "background_color": "#0F111A",
   "theme_color": "#0F111A",
