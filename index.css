@@ -60,6 +60,7 @@ nav
     background-color: #1A1C29;
 }
 nav.NavigationBar {
+  border-radius: 20px 20px 0 0;
   display: flex;
   justify-content: space-evenly; /* Distributes links with equal space around them */
   align-items: center;           /* Centers all links vertically inside the nav bar */
