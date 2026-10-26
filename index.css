@@ -37,12 +37,13 @@ a, a:visited, a:hover, a:active
   transform: scale(0.95); /* Shrinks slightly to give tactile feedback */
   filter: brightness(1.35) drop-shadow(0 0 12px rgba(74, 168, 108, 0.8));
 }
+
 header.Header
 {
     display: flex;
     align-items: center;
     background-color: #0d1117;
-    font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
     font-size: 18px;
     font-weight: 600;
     padding: 16px 14px; 
