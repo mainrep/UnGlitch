@@ -5,8 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>UnGlitch | Map</title>
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
         <link rel="manifest" href="manifest.json">
         <meta name="theme-color" content="#0F111A">
+        <script>
+            const map = L.map('map').setView([51.505, -0.09], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+        </script>
     </head>
     <body>
         <header class="Header">
@@ -39,9 +47,11 @@
         </header>
         <h1>Map</h1>
         <form id="shopInput">
-        <label>Search for the nearest shop</label>
-        <input type="text" id="shop" placeholder="Search for the nearest shop">
+            <input type="text" id="shop" placeholder="Search nearest repair shop">
         </form>
+        <div id="map">
+
+        </div>
         <br>
     </body>
 </html>
