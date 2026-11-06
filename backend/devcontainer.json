@@ -1,0 +1,5 @@
+{
+    "name": "UnGlitch",
+    "postCreateCommand": "python3 -m pip install -r backend/requirements.txt",
+    "forwardPorts": [8000, 5500]
+}
