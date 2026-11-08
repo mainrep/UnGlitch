@@ -1,45 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>UnGlitch</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="#0F111A">
-    </head>
-    <body>
-        <header class="Header">
-                <a href="index.html" class="logo-link">
-                    <span>
-                        <img class="logo-image" src="logo.png" alt="logo" style="height: 36px; width: auto;">
-                    </span>
-                    <span class="AppName">
-                        UnGlitch
-                    </span>
-                </a>
-                <nav class="NavigationBar">
-                    <a class="NavBar" href="index.html">
-                        <span class="SpacedWord">Homepage</span>
-                        <img src="homeDM.svg" alt="home_icon" class="icons" width="20" height="20"> 
-                    </a> 
-                    <a class="NavBar" href="repair.html">
-                        <span class="SpacedWord">Repair</span> 
-                        <img src="repairDM.svg" alt="repair_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="map.html">
-                        <span class="SpacedWord">Map</span> 
-                        <img src="mapDM.svg" alt="map_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="profile.html">
-                        <span class="SpacedWord">Profile</span>
-                        <img src="profileDM.svg" alt="profile_icon" class="icons" width="20" height="20"> 
-                    </a>
-                </nav>
-        </header>
-        <p>Welcome to UnGlitch!</p>
-        <span><h1>Small Actions. Big impact.</h1></span>
-        
-        <br>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>UnGlitch | Home</title>
+
+    <meta name="description"
+          content="Repair your devices, reduce electronic waste and make a difference with UnGlitch.">
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="home.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#0F111A">
+
+    <script src="home.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="Header">
+
+        <a href="index.html" class="logo-link">
+
+            <img class="logo-image"
+                 src="logo.png"
+                 alt="UnGlitch logo"
+                 style="height: 36px; width: auto;">
+
+            <span class="AppName">
+                UnGlitch
+            </span>
+
+        </a>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav class="NavigationBar">
+
+            <a class="NavBar active" href="index.html">
+                <span class="SpacedWord">Home</span>
+
+                <img src="homeDM.svg"
+                     alt=""
+                     class="icons"
+                     width="20"
+                     height="20">
+            </a>
+
+            <a class="NavBar" href="repair.html" data-consumer-only>
+                <span class="SpacedWord">Repair</span>
+
+                <img src="repairDM.svg"
+                     alt=""
+                     class="icons"
+                     width="20"
+                     height="20">
+            </a>
+
+            <a class="NavBar" href="map.html">
+                <span class="SpacedWord">Map</span>
+
+                <img src="mapDM.svg"
+                     alt=""
+                     class="icons"
+                     width="20"
+                     height="20">
+            </a>
+
+            <a class="NavBar" href="profile.html">
+                <span class="SpacedWord">Profile</span>
+
+                <img src="profileDM.svg"
+                     alt=""
+                     class="icons"
+                     width="20"
+                     height="20">
+            </a>
+
+        </nav>
+
+
+        <!-- SECONDARY NAVIGATION BUTTON -->
+
+        <button class="menu-button"
+                id="menuButton"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="siteMenu">
+
+            ☰
+
+        </button>
+
+
+        <!-- SECONDARY NAVIGATION MENU -->
+
+        <aside class="site-menu" id="siteMenu" hidden>
+
+            <h3>Explore UnGlitch</h3>
+
+            <a href="community.html">
+                Community Discussions
+            </a>
+
+            <a href="profile.html">
+                Account Settings
+            </a>
+
+            <div class="menu-divider"></div>
+
+            <span class="coming-soon">
+                Leaderboard — Coming Soon
+            </span>
+
+            <span class="coming-soon">
+                Appearance — Coming Soon
+            </span>
+
+        </aside>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="home-container">
+
+        <div id="dashboard">
+
+            <!-- JavaScript inserts the appropriate dashboard here -->
+
+        </div>
+
+    </main>
+
+
+    <footer class="home-footer">
+
+        <p>
+            UnGlitch — Repair more. Waste less.
+        </p>
+
+    </footer>
+
+</body>
 </html>

@@ -5,7 +5,7 @@ from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
 
-from config import JWT_SECRET
+from backend.config import JWT_SECRET
 from backend.database import get_db
 from backend.models import User
 

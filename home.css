@@ -1,0 +1,350 @@
+/* =========================================
+   GENERAL HOMEPAGE LAYOUT
+========================================= */
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 25px;
+}
+
+.home-section {
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+.welcome-section {
+    padding: 35px;
+    background: linear-gradient(120deg, #172521, #1c3028);
+
+    border: 1px solid #34483e;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.welcome-section h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+    color: #f1f5f9;
+}
+
+.welcome-section p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.welcome-tag {
+    color: #86c99c;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    font-size: 21px;
+    margin-bottom: 17px;
+    color: #f1f5f9;
+}
+
+
+/* =========================================
+   STATISTICS CARDS
+========================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.stat-card {
+    background-color: #171c29;
+
+    border: 1px solid #30394a;
+    border-radius: 12px;
+
+    padding: 23px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #aab5c5;
+}
+
+.stat-value {
+    font-size: 29px;
+    font-weight: 700;
+
+    margin: 12px 0;
+
+    color: #e2e8f0;
+}
+
+.stat-description {
+    font-size: 12px;
+    color: #8491a4;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   QUICK ACTION CARDS
+========================================= */
+
+.actions-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.action-card {
+    background-color: #171c29;
+
+    border: 1px solid #30394a;
+    border-radius: 12px;
+
+    padding: 22px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #5a9b77;
+
+    background-color: #1d2632;
+}
+
+.action-card h3 {
+    font-size: 17px;
+    margin: 12px 0;
+    color: #f1f5f9;
+}
+
+.action-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #aab5c5;
+}
+
+.action-icon {
+    font-size: 25px;
+}
+
+
+/* =========================================
+   INFORMATION PANELS
+========================================= */
+
+.info-panel {
+    background-color: #171c29;
+
+    border: 1px solid #30394a;
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+.info-panel h3 {
+    margin-top: 0;
+    color: #e2e8f0;
+}
+
+.info-panel p {
+    color: #aab5c5;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-button {
+    display: inline-block;
+
+    background-color: #478c65;
+    color: white !important;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
+}
+
+.primary-button:hover {
+    background-color: #58a477;
+}
+
+
+/* =========================================
+   SECONDARY NAVIGATION
+========================================= */
+
+.menu-button {
+    border: none;
+    background: transparent;
+
+    color: #e2e8f0;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    padding: 8px 12px;
+}
+
+.site-menu {
+    position: absolute;
+
+    right: 15px;
+    top: 75px;
+
+    width: 250px;
+
+    background-color: #171c29;
+
+    border: 1px solid #30394a;
+    border-radius: 12px;
+
+    padding: 18px;
+
+    z-index: 2000;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.site-menu[hidden] {
+    display: none;
+}
+
+.site-menu h3 {
+    font-size: 15px;
+    margin-top: 0;
+    color: #e2e8f0;
+}
+
+.site-menu a {
+    display: block;
+
+    padding: 11px 8px;
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.site-menu a:hover {
+    background-color: #263344;
+}
+
+.menu-divider {
+    height: 1px;
+    background-color: #30394a;
+    margin: 10px 0;
+}
+
+.coming-soon {
+    display: block;
+
+    padding: 10px 8px;
+
+    font-size: 13px;
+    color: #8491a4;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.home-footer {
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 12px;
+
+    color: #8491a4;
+
+    border-top: 1px solid #30394a;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+    .stats-grid,
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .home-container {
+        padding: 22px 15px;
+    }
+
+    .welcome-section {
+        padding: 25px;
+    }
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+
+    .stats-grid,
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .NavigationBar {
+        display: none !important;
+    }
+
+    .Header .menu-button {
+        margin-left: auto;
+    }
+
+}

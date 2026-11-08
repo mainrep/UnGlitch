@@ -1,7 +1,10 @@
-from dotenv import load_dotenv
-load_dotenv()
-
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Locate the .env file in the same folder as config.py
+ENV_FILE = Path(__file__).resolve().with_name(".env")
+load_dotenv(dotenv_path=ENV_FILE)
 
 
 def require_env(name: str) -> str:

@@ -7,7 +7,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from backend.auth import create_token, get_current_user, require_role
-from config import ALLOWED_ORIGINS, GOOGLE_CLIENT_ID, NOMINATIM_CONTACT
+from backend.config import ALLOWED_ORIGINS, GOOGLE_CLIENT_ID, NOMINATIM_CONTACT
 from backend.database import engine, Base, get_db
 from backend.models import Shop, User, Rating
 from backend.schemas import (ShopCreate, ShopOut, GoogleLogin, TokenOut,
