@@ -1,57 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>UnGlitch | Map</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="#0F111A">
-        <script>
-            const map = L.map('map').setView([51.505, -0.09], 13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                {
-                    attribution: '&copy; OpenStreetMap contributors'
-                }).addTo(map);
-        </script>
-    </head>
-    <body>
-        <header class="Header">
-            <a href="index.html" class="logo-link">
-                <span>
-                    <img class="logo-image" src="logo.png" alt="logo" style="height: 36px; width: auto;">
-                </span>
-                <span class="AppName">
-                    UnGlitch
-                </span>
-            </a>
-            <nav class="NavigationBar">
-                <a class="NavBar" href="index.html">
-                    <span class="SpacedWord">Homepage</span>
-                    <img src="homeDM.svg" alt="home_icon" class="icons" width="20" height="20"> 
-                </a> 
-                <a class="NavBar" href="repair.html">
-                    <span class="SpacedWord">Repair</span> 
-                    <img src="repairDM.svg" alt="repair_icon" class="icons" width="20" height="20">
-                </a>
-                <a class="NavBar" href="map.html">
-                    <span class="SpacedWord">Map</span> 
-                    <img src="mapDM.svg" alt="map_icon" class="icons" width="20" height="20">
-                </a>
-                <a class="NavBar" href="profile.html">
-                    <span class="SpacedWord">Profile</span>
-                    <img src="profileDM.svg" alt="profile_icon" class="icons" width="20" height="20"> 
-                </a>
-            </nav>
-        </header>
-        <h1>Map</h1>
-        <form id="shopInput">
-            <input type="text" id="shop" placeholder="Search nearest repair shop">
-        </form>
-        <div id="map">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>UnGlitch | Repair Map</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="map.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#0F111A">
+
+    <script src="config.js" defer></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            defer></script>
+
+    <script src="map.js" defer></script>
+
+</head>
+
+
+<body>
+
+<header class="Header">
+
+    <a href="index.html" class="logo-link">
+
+        <img class="logo-image"
+             src="logo.png"
+             alt="UnGlitch logo"
+             style="height: 36px; width: auto;">
+
+        <span class="AppName">UnGlitch</span>
+
+    </a>
+
+
+    <nav class="NavigationBar">
+
+        <a class="NavBar" href="index.html">
+            <span class="SpacedWord">Home</span>
+            <img src="homeDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar" href="repair.html">
+            <span class="SpacedWord">Repair</span>
+            <img src="repairDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar active" href="map.html">
+            <span class="SpacedWord">Map</span>
+            <img src="mapDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar" href="profile.html">
+            <span class="SpacedWord">Profile</span>
+            <img src="profileDM.svg" alt="" class="icons">
+        </a>
+
+    </nav>
+
+
+    <button class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="siteMenu">
+
+        ☰
+
+    </button>
+
+
+    <aside class="site-menu" id="siteMenu" hidden>
+
+        <h3>Explore UnGlitch</h3>
+
+        <a href="calculator.html">Carbon Impact Calculator</a>
+
+        <a href="community.html">Community Discussions</a>
+
+        <a href="profile.html">Account Settings</a>
+
+        <div class="menu-divider"></div>
+
+        <span class="coming-soon">Leaderboard — Coming Soon</span>
+
+        <span class="coming-soon">Achievements — Coming Soon</span>
+
+    </aside>
+
+</header>
+
+
+<main class="map-container">
+
+    <section class="map-intro">
+
+        <span class="welcome-tag">LOCAL REPAIR NETWORK</span>
+
+        <h1>Find a Repair Shop Near You</h1>
+
+        <p>
+            Explore registered repair providers and compare
+            their services before choosing a repair option.
+        </p>
+
+    </section>
+
+
+    <section class="map-panel">
+
+        <div class="map-controls">
+
+            <input
+                type="search"
+                id="shopSearch"
+                placeholder="Search by shop name or address"
+                aria-label="Search repair shops"
+            >
+
+            <select id="deviceFilter">
+
+                <option value="">All devices</option>
+
+                <option value="Phones">Phones</option>
+
+                <option value="Tablets">Tablets</option>
+
+                <option value="Laptops">Laptops</option>
+
+            </select>
+
+            <button id="locateButton" class="primary-button">
+                Find My Location
+            </button>
 
         </div>
-        <br>
-    </body>
+
+
+        <p id="mapStatus" aria-live="polite">
+            Loading registered repair shops...
+        </p>
+
+
+        <div id="map" role="application"
+             aria-label="Map showing registered repair shops">
+        </div>
+
+    </section>
+
+
+    <section class="map-panel">
+
+        <h2>Registered Repair Shops</h2>
+
+        <div id="shopList" class="shop-list"></div>
+
+    </section>
+
+</main>
+
+
+<footer class="home-footer">
+
+    <p>UnGlitch — Repair more. Waste less.</p>
+
+</footer>
+
+</body>
 </html>

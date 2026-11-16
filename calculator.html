@@ -1,42 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>UnGlitch | Calculator</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="#0F111A">
-    </head>
-    <body>
-        <header class="Header">
-                <a href="index.html" class="logo-link">
-                    <span>
-                        <img class="logo-image" src="logo.png" alt="logo" style="height: 36px; width: auto;">
-                    </span>
-                    <span class="AppName">
-                        UnGlitch
-                    </span>
-                </a>
-                <nav class="NavigationBar">
-                    <a class="NavBar" href="index.html">
-                        <span class="SpacedWord">Homepage</span>
-                        <img src="homeDM.svg" alt="home_icon" class="icons" width="20" height="20"> 
-                    </a> 
-                    <a class="NavBar" href="repair.html">
-                        <span class="SpacedWord">Repair</span> 
-                        <img src="repairDM.svg" alt="repair_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="map.html">
-                        <span class="SpacedWord">Map</span> 
-                        <img src="mapDM.svg" alt="map_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="profile.html">
-                        <span class="SpacedWord">Profile</span>
-                        <img src="profileDM.svg" alt="profile_icon" class="icons" width="20" height="20"> 
-                    </a>
-                </nav>
-        <h1>Calculator</h1>
-        <br>
-    </body>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>UnGlitch | Carbon Impact Calculator</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="calculator.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#0F111A">
+
+    <script src="config.js" defer></script>
+    <script src="calculator.js" defer></script>
+
+</head>
+
+
+<body>
+
+<header class="Header">
+
+    <a href="index.html" class="logo-link">
+
+        <img class="logo-image"
+             src="logo.png"
+             alt="UnGlitch logo"
+             style="height: 36px; width: auto;">
+
+        <span class="AppName">UnGlitch</span>
+
+    </a>
+
+
+    <nav class="NavigationBar">
+
+        <a class="NavBar" href="index.html">
+            <span class="SpacedWord">Home</span>
+            <img src="homeDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar" href="repair.html">
+            <span class="SpacedWord">Repair</span>
+            <img src="repairDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar" href="map.html">
+            <span class="SpacedWord">Map</span>
+            <img src="mapDM.svg" alt="" class="icons">
+        </a>
+
+        <a class="NavBar" href="profile.html">
+            <span class="SpacedWord">Profile</span>
+            <img src="profileDM.svg" alt="" class="icons">
+        </a>
+
+    </nav>
+
+
+    <button class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="siteMenu">
+
+        ☰
+
+    </button>
+
+
+    <aside class="site-menu" id="siteMenu" hidden>
+
+        <h3>Explore UnGlitch</h3>
+
+        <a href="calculator.html" aria-current="page">
+            Carbon Impact Calculator
+        </a>
+
+        <a href="community.html">
+            Community Discussions
+        </a>
+
+        <a href="profile.html">
+            Account Settings
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <span class="coming-soon">Leaderboard — Coming Soon</span>
+
+        <span class="coming-soon">Achievements — Coming Soon</span>
+
+    </aside>
+
+</header>
+
+
+<main class="calculator-container">
+
+    <section class="calculator-intro">
+
+        <span class="welcome-tag">ENVIRONMENTAL IMPACT</span>
+
+        <h1>What could repairing your device mean for the environment?</h1>
+
+        <p>
+            Explore how extending the lifespan of an electronic
+            device could reduce the need for replacement.
+        </p>
+
+    </section>
+
+
+    <section class="calculator-panel">
+
+        <h2>Build Your Scenario</h2>
+
+        <p>
+            Enter the details below to estimate the potential
+            environmental impact of repairing your device.
+        </p>
+
+
+        <form id="calculatorForm">
+
+            <div class="calculator-grid">
+
+                <div class="form-group">
+
+                    <label for="deviceType">Device Type</label>
+
+                    <select id="deviceType" required>
+
+                        <option value="">Choose a device</option>
+
+                        <option value="phone">Smartphone</option>
+
+                        <option value="tablet">Tablet</option>
+
+                        <option value="laptop">Laptop</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="deviceModel">
+                        Device Model (Optional)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="deviceModel"
+                        placeholder="e.g. iPhone 14"
+                        maxlength="120"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="repairCost">
+                        Estimated Repair Cost (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="repairCost"
+                        min="0"
+                        max="1000000"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="replacementCost">
+                        Estimated Replacement Cost (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="replacementCost"
+                        min="0"
+                        max="1000000"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="extraYears">
+                        Additional Years of Use
+                    </label>
+
+                    <select id="extraYears" required>
+
+                        <option value="0.5">6 months</option>
+
+                        <option value="1" selected>1 year</option>
+
+                        <option value="2">2 years</option>
+
+                        <option value="3">3 years</option>
+
+                        <option value="4">4 years</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="replacementLikelihood">
+                        Likelihood of Avoiding Replacement
+                    </label>
+
+                    <select id="replacementLikelihood" required>
+
+                        <option value="0.25">25% — Low</option>
+
+                        <option value="0.5">50% — Moderate</option>
+
+                        <option value="0.75" selected>75% — High</option>
+
+                        <option value="1">100% — Certain</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <h3>Optional Group Scenario</h3>
+
+            <p>
+                Explore the potential impact if several devices
+                were repaired instead of replaced.
+            </p>
+
+
+            <div class="calculator-grid">
+
+                <div class="form-group">
+
+                    <label for="scenarioType">
+                        Comparison Group
+                    </label>
+
+                    <select id="scenarioType">
+
+                        <option value="individual">Individual</option>
+
+                        <option value="household">Household</option>
+
+                        <option value="school">School or Community Group</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="deviceCount">
+                        Number of Devices
+                    </label>
+
+                    <input
+                        type="number"
+                        id="deviceCount"
+                        min="1"
+                        max="10000"
+                        value="1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button type="submit"
+                    class="primary-button"
+                    id="calculateButton">
+
+                Calculate Impact
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section class="calculator-panel results-panel">
+
+        <h2>Your Estimated Impact</h2>
+
+        <div id="emptyState">
+
+            <div class="empty-icon">🌱</div>
+
+            <h3>Your results will appear here</h3>
+
+            <p>
+                Complete the form to explore your repair scenario.
+            </p>
+
+        </div>
+
+
+        <div id="calculatorResult" hidden>
+
+            <span class="result-label">
+                INDICATIVE AVOIDED MANUFACTURING EMISSIONS
+            </span>
+
+            <div id="carbonNumber" class="carbon-number"></div>
+
+            <p id="resultExplanation"></p>
+
+            <div class="impact-note">
+
+                <h3>Financial Comparison</h3>
+
+                <p id="financialResult"></p>
+
+            </div>
+
+
+            <div class="impact-note">
+
+                <h3>Group Scenario</h3>
+
+                <p id="groupResult"></p>
+
+            </div>
+
+
+            <h3>How was this estimated?</h3>
+
+            <p id="calculationExplanation"></p>
+
+        </div>
+
+    </section>
+
+
+    <section class="calculator-panel">
+
+        <h2>Understanding the Limitations</h2>
+
+        <p>
+            This calculator uses simplified category-level
+            manufacturing-footprint assumptions. It does not
+            measure the exact emissions of a particular device.
+        </p>
+
+        <p>
+            Actual environmental benefits depend on the repair
+            required, replacement decisions, transport, materials,
+            energy consumption and how long the repaired device
+            continues to be used.
+        </p>
+
+        <p>
+            The probability of avoiding replacement is a user-selected
+            scenario assumption, not a scientifically measured
+            prediction about an individual.
+        </p>
+
+        <p>
+            The calculation should therefore be interpreted as
+            an indicative scenario, not a guaranteed carbon saving.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer class="home-footer">
+
+    <p>UnGlitch — Repair more. Waste less.</p>
+
+</footer>
+
+</body>
 </html>

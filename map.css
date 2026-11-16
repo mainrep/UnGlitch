@@ -1,0 +1,94 @@
+.map-container {
+    width: min(1200px, 94%);
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.map-intro h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 15px 0;
+}
+
+.map-intro p {
+    max-width: 750px;
+    line-height: 1.7;
+    color: #B8C3D3;
+}
+
+.map-panel {
+    padding: 25px;
+    background: #181E2B;
+    border: 1px solid #303B4D;
+    border-radius: 18px;
+}
+
+.map-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.map-controls input,
+.map-controls select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    border: 1px solid #39465B;
+    border-radius: 8px;
+    background: #101521;
+    color: #E2E8F0;
+}
+
+#map {
+    width: 100%;
+    height: 480px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.shop-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.shop-card {
+    padding: 18px;
+    border: 1px solid #303B4D;
+    border-radius: 12px;
+    background: #101521;
+}
+
+.shop-card h3 {
+    margin-top: 0;
+}
+
+.shop-card p {
+    line-height: 1.5;
+    color: #CBD5E1;
+}
+
+@media (max-width: 600px) {
+
+    .map-container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .map-panel {
+        padding: 17px;
+    }
+
+    #map {
+        height: 380px;
+    }
+
+    .map-controls {
+        flex-direction: column;
+    }
+
+}

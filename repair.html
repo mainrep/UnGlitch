@@ -1,42 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>UnGlitch | Repair</title>
-        <link rel="stylesheet" href="index.css">
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="#0F111A">
-    </head>
-    <body>
-        <header class="Header">
-                <a href="index.html" class="logo-link">
-                    <span>
-                        <img class="logo-image" src="logo.png" alt="logo" style="height: 36px; width: auto;">
-                    </span>
-                    <span class="AppName">
-                        UnGlitch
-                    </span>
-                </a>
-                <nav class="NavigationBar">
-                    <a class="NavBar" href="index.html">
-                        <span class="SpacedWord">Homepage</span>
-                        <img src="homeDM.svg" alt="home_icon" class="icons" width="20" height="20"> 
-                    </a> 
-                    <a class="NavBar" href="repair.html">
-                        <span class="SpacedWord">Repair</span> 
-                        <img src="repairDM.svg" alt="repair_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="map.html">
-                        <span class="SpacedWord">Map</span> 
-                        <img src="mapDM.svg" alt="map_icon" class="icons" width="20" height="20">
-                    </a>
-                    <a class="NavBar" href="profile.html">
-                        <span class="SpacedWord">Profile</span>
-                        <img src="profileDM.svg" alt="profile_icon" class="icons" width="20" height="20"> 
-                    </a>
-                </nav>
-        </header>
-        <h1>Repair</h1>
-    </body>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>UnGlitch | Repair</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="repair.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#0F111A">
+
+    <script src="repair.js" defer></script>
+
+    <script src="config.js" defer></script>
+    <script src="repair.js" defer></script>
+
+</head>
+
+
+<body>
+
+<header class="Header">
+
+    <a href="index.html" class="logo-link">
+
+        <img class="logo-image"
+             src="logo.png"
+             alt="UnGlitch logo"
+             style="height: 36px; width: auto;">
+
+        <span class="AppName">UnGlitch</span>
+
+    </a>
+
+
+    <nav class="NavigationBar">
+
+        <a class="NavBar" href="index.html">
+
+            <span class="SpacedWord">Home</span>
+
+            <img src="homeDM.svg" alt="" class="icons">
+
+        </a>
+
+
+        <a class="NavBar active"
+           href="repair.html"
+           data-consumer-only
+           aria-current="page">
+
+            <span class="SpacedWord">Repair</span>
+
+            <img src="repairDM.svg" alt="" class="icons">
+
+        </a>
+
+
+        <a class="NavBar" href="map.html">
+
+            <span class="SpacedWord">Map</span>
+
+            <img src="mapDM.svg" alt="" class="icons">
+
+        </a>
+
+
+        <a class="NavBar" href="profile.html">
+
+            <span class="SpacedWord">Profile</span>
+
+            <img src="profileDM.svg" alt="" class="icons">
+
+        </a>
+
+    </nav>
+
+
+    <button class="menu-button"
+            id="menuButton"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="siteMenu">
+
+        ☰
+
+    </button>
+
+
+    <aside class="site-menu" id="siteMenu" hidden>
+
+        <h3>Explore UnGlitch</h3>
+
+        <a href="calculator.html">Carbon Impact Calculator</a>
+
+        <a href="community.html">Community Discussions</a>
+
+        <a href="profile.html">Account Settings</a>
+
+        <a href="calculator.html" data-consumer-only>
+            Carbon Impact Calculator
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <span class="coming-soon">Leaderboard — Coming Soon</span>
+
+        <span class="coming-soon">Appearance — Coming Soon</span>
+
+    </aside>
+
+</header>
+
+
+<main class="repair-container">
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="repair-intro">
+
+        <span class="welcome-tag">DEVICE REPAIR SUPPORT</span>
+
+        <h1>Understand the problem. Make an informed choice.</h1>
+
+        <p>
+
+            Explore possible causes of your device issues,
+            understand your repair options and discover
+            how professional repair can extend your device's lifespan.
+
+        </p>
+
+    </section>
+
+
+    <!-- ACCESS RESTRICTION -->
+
+    <section id="accessNotice"
+             class="repair-panel"
+             hidden>
+
+        <h2>Consumer access required</h2>
+
+        <p>
+
+            The diagnostic tool is available to consumer accounts.
+            Please sign in with a consumer account to continue.
+
+        </p>
+
+        <a href="profile.html" class="primary-button">
+
+            Go to Profile
+
+        </a>
+
+    </section>
+
+
+    <div id="repairContent" hidden>
+
+
+        <!-- DIAGNOSTIC FORM -->
+
+        <div class="repair-grid">
+
+
+            <section class="repair-panel">
+
+                <h2>Diagnostic Assessment</h2>
+
+                <p class="panel-description">
+
+                    Tell us about your device and the problem
+                    you're experiencing.
+
+                </p>
+
+
+                <form id="diagnosticForm">
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="deviceType">
+                                Device Type
+                            </label>
+
+                            <select id="deviceType" required>
+
+                                <option value="">Select device</option>
+
+                                <option value="phone">Smartphone</option>
+
+                                <option value="tablet">Tablet</option>
+
+                                <option value="laptop">Laptop</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="deviceModel">
+                                Device Model
+                            </label>
+
+                            <input
+                                type="text"
+                                id="deviceModel"
+                                placeholder="e.g. iPhone 14, MacBook Air"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="deviceAge">
+                                Device Age
+                            </label>
+
+                            <select id="deviceAge">
+
+                                <option value="">Select age</option>
+
+                                <option value="under1">Less than 1 year</option>
+
+                                <option value="1to2">1–2 years</option>
+
+                                <option value="2to4">2–4 years</option>
+
+                                <option value="over4">More than 4 years</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="issueType">
+                                Main Problem
+                            </label>
+
+                            <select id="issueType" required>
+
+                                <option value="">Select problem</option>
+
+                                <option value="battery">Battery issues</option>
+
+                                <option value="charging">Charging problems</option>
+
+                                <option value="display">Screen or display issues</option>
+
+                                <option value="performance">Slow performance</option>
+
+                                <option value="connectivity">Connectivity problems</option>
+
+                                <option value="liquid">Liquid exposure</option>
+
+                                <option value="physical">Physical damage</option>
+
+                                <option value="other">Other issue</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="symptoms">
+                            Describe the Symptoms
+                        </label>
+
+                        <textarea
+                            id="symptoms"
+                            rows="4"
+                            placeholder="Describe what happens when you use your device..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <p class="form-note">
+
+                        This tool provides preliminary guidance,
+                        not a confirmed technical diagnosis.
+
+                    </p>
+
+
+                    <button type="submit" class="primary-button">
+
+                        Assess My Device
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- RESULTS -->
+
+            <section class="repair-panel results-panel">
+
+                <h2>Assessment Results</h2>
+
+
+                <div id="emptyState">
+
+                    <div class="empty-icon">🔍</div>
+
+                    <h3>Your assessment will appear here</h3>
+
+                    <p>
+
+                        Complete the diagnostic form to explore
+                        possible causes and recommended next steps.
+
+                    </p>
+
+                </div>
+
+
+                <div id="diagnosticResult" hidden>
+
+                    <h3 id="resultTitle"></h3>
+
+                    <p id="resultSummary"></p>
+
+                    <h4>Possible Causes</h4>
+
+                    <ul id="possibleCauses"></ul>
+
+                    <h4>Recommended Next Steps</h4>
+
+                    <ul id="recommendedSteps"></ul>
+
+                    <div class="professional-note"
+                         id="professionalNote"></div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- LINK TO CALCULATOR -->
+
+        <section class="repair-panel calculator-link-panel">
+
+            <span class="welcome-tag">ENVIRONMENTAL IMPACT</span>
+
+            <h2>Explore the Environmental Impact of Repair</h2>
+
+            <p>
+
+                Manufacturing electronic devices produces greenhouse
+                gas emissions. Extending a device's lifespan through
+                repair may help avoid the need to manufacture a replacement.
+
+            </p>
+
+            <a href="calculator.html" class="primary-button">
+
+                Open Carbon Impact Calculator
+
+            </a>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<footer class="home-footer">
+
+    <p>UnGlitch — Repair more. Waste less.</p>
+
+</footer>
+
+</body>
+
 </html>

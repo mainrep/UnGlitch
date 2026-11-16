@@ -89,3 +89,246 @@ div.Title
     height: 70vh;
     width: 100%;
 }
+[hidden] {
+    display: none !important;
+}
+/* =========================================
+   MOBILE PRIMARY NAVIGATION
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Reserve space so the bottom navigation
+       does not cover the page content. */
+
+    body {
+        padding-bottom: calc(78px + env(safe-area-inset-bottom));
+    }
+
+    /* Keep the logo and hamburger in the top header. */
+
+    .NavigationBar {
+        position: fixed !important;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        box-sizing: border-box;
+
+        display: flex !important;
+        align-items: stretch;
+        justify-content: space-around;
+
+        gap: 0;
+        margin: 0;
+
+        padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+
+        background-color: #0d1117;
+
+        border-top: 1px solid #30363d;
+        border-bottom: none;
+
+        z-index: 2000;
+    }
+
+
+    /* Give each navigation destination
+       an equal amount of space. */
+
+    .NavigationBar .NavBar {
+
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 48px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+
+        padding: 6px 2px;
+
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+
+    /* Make the navigation labels compact. */
+
+    .NavigationBar .SpacedWord {
+        font-size: 12px;
+        letter-spacing: normal;
+    }
+
+
+    /* Keep icons consistently sized. */
+
+    .NavigationBar .icons {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+    }
+
+
+    /* Maintain an accessible hamburger button. */
+
+    .menu-button {
+        min-width: 44px;
+        min-height: 44px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-left: auto;
+    }
+
+}
+
+/* Ensure JavaScript-hidden elements remain hidden,
+   even when other CSS rules define their display. */
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   SHARED NAVIGATION
+========================================= */
+
+.menu-button {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #E2E8F0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.site-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 14px;
+    z-index: 2100;
+    min-width: 220px;
+    padding: 16px;
+    background: #171d2a;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.site-menu a,
+.site-menu span {
+    display: block;
+    padding: 10px;
+}
+
+.site-menu a:hover {
+    background: #263344;
+    border-radius: 6px;
+}
+
+.site-menu h3 {
+    margin: 4px 10px 10px;
+}
+
+.coming-soon {
+    color: #929eaf;
+    font-size: 14px;
+}
+
+.menu-divider {
+    border-top: 1px solid #30363d;
+    margin: 8px 0;
+}
+
+
+/* =========================================
+   MOBILE PRIMARY NAVIGATION
+========================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-bottom: calc(82px + env(safe-area-inset-bottom));
+    }
+
+    header.Header {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    nav.NavigationBar {
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        box-sizing: border-box;
+
+        display: flex !important;
+        justify-content: space-around;
+        align-items: stretch;
+
+        margin: 0;
+        padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+
+        background: #0d1117;
+        border-top: 1px solid #30363d;
+
+        z-index: 2000;
+    }
+
+    nav.NavigationBar a {
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 48px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+        padding: 6px 2px;
+
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .NavigationBar .SpacedWord {
+        font-size: 12px;
+        letter-spacing: normal;
+    }
+
+    .NavigationBar .icons {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+    }
+
+    [hidden] {
+        display: none !important;
+    }
+
+}
+
+[hidden] {
+    display: none !important;
+}

@@ -508,12 +508,10 @@ renderDashboard(currentUser);
 // Hide the consumer-only Repair navigation link
 // when a shop owner is signed in.
 
-if (currentUser?.role === "shop") {
+if (dashboardUser?.role !== "consumer") {
 
     document.querySelectorAll("[data-consumer-only]").forEach(link => {
-
         link.hidden = true;
-
     });
 
 }

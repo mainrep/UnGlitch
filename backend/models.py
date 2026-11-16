@@ -1,3 +1,8 @@
+from sqlalchemy import (
+    Column, Integer, String, Float, DateTime,
+    ForeignKey, UniqueConstraint, CheckConstraint, Text
+)
+
 from datetime import datetime, timezone
 
 from sqlalchemy import (Column, Integer, String, Float, DateTime,
@@ -46,4 +51,34 @@ class Rating(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     stars = Column(Integer, nullable=False)
     comment = Column(String)
+    created_at = Column(DateTime, default=utcnow)
+
+# =========================================
+# DIAGNOSTIC HISTORY
+# =========================================
+
+class DiagnosticAssessment(Base):
+
+    __tablename__ = "diagnostic_assessments"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False
+    )
+
+    device_type = Column(String, nullable=False)
+
+    model = Column(String)
+
+    device_age = Column(String)
+
+    issue_type = Column(String, nullable=False)
+
+    symptoms = Column(Text)
+
+    result_json = Column(Text, nullable=False)
+
     created_at = Column(DateTime, default=utcnow)

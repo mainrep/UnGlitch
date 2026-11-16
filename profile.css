@@ -1,0 +1,35 @@
+#shopRegistrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+#shopRegistrationForm input:not([type="checkbox"]),
+#shopRegistrationForm select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #39465B;
+    border-radius: 8px;
+    background: #101521;
+    color: #E2E8F0;
+}
+
+#shopRegistrationForm fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #39465B;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+#shopRegistrationForm label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#shopRegistrationForm button {
+    align-self: flex-start;
+}

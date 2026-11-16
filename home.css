@@ -134,12 +134,41 @@
         background-color 0.2s ease;
 }
 
-.action-card:hover {
-    transform: translateY(-4px);
+/* Desktop hover feedback */
 
-    border-color: #5a9b77;
+@media (hover: hover) and (pointer: fine) {
 
-    background-color: #1d2632;
+    .action-card:hover {
+        border-color: #5a9b77;
+        background-color: #1d2632;
+    }
+
+}
+
+/* Touch and click feedback */
+
+.action-card:active
+{
+    transform: scale(0.98);
+    background-color: #263344;
+}
+
+/* Keyboard accessibility */
+
+.action-card:focus-visible
+{
+    outline: 2px solid #86c99c;
+    outline-offset: 3px;
+}
+
+/* Smooth interaction */
+
+.action-card
+{
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background-color 0.15s ease;
 }
 
 .action-card h3 {
