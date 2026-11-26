@@ -1,24 +1,120 @@
+.profile-container {
+    width: min(900px, 92%);
+    margin: 42px auto 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profile-intro h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #E2E8F0;
+}
+
+.profile-intro p {
+    max-width: 720px;
+    color: #B8C3D3;
+    line-height: 1.7;
+}
+
+.welcome-tag {
+    color: #8ACBA6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.profile-panel {
+    padding: clamp(20px, 4vw, 30px);
+    background: #181E2B;
+    border: 1px solid #303B4D;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.profile-panel h2 {
+    margin-top: 0;
+    color: #E2E8F0;
+}
+
+.profile-panel p {
+    color: #C3CDDA;
+    line-height: 1.6;
+}
+
+#signInSection {
+    display: grid;
+    gap: 14px;
+}
+
+#accountRole,
+#shopRegistrationForm input:not([type="checkbox"]) {
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    color: #E2E8F0;
+    background: #101521;
+    border: 1px solid #39465B;
+    border-radius: 8px;
+    font: inherit;
+}
+
+#googleSignInButton {
+    min-height: 44px;
+    margin-top: 4px;
+}
+
+#authStatus,
+#shopStatus {
+    min-height: 1.5em;
+    margin: 4px 0 0;
+    color: #AFC1D5;
+}
+
+#authStatus[data-state="error"] {
+    color: #FFAAAA;
+}
+
+.role-badge {
+    display: inline-flex;
+    padding: 6px 12px;
+    border: 1px solid #477D5B;
+    border-radius: 999px;
+    color: #A8DFB7;
+    background: #193126;
+}
+
+.profile-link {
+    display: inline-flex;
+    width: fit-content;
+    margin: 8px 10px 0 0;
+    padding: 10px 14px;
+    border: 1px solid #39465B;
+    border-radius: 8px;
+    color: #A8DFB7 !important;
+    background: #101521;
+}
+
+.profile-link:hover {
+    background: #223246;
+}
+
 #shopRegistrationForm {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
     margin-top: 24px;
-}
-
-#shopRegistrationForm input:not([type="checkbox"]),
-#shopRegistrationForm select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #39465B;
-    border-radius: 8px;
-    background: #101521;
-    color: #E2E8F0;
 }
 
 #shopRegistrationForm fieldset {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: min(100%, 390px);
+    box-sizing: border-box;
     border: 1px solid #39465B;
     border-radius: 10px;
     padding: 16px;
@@ -28,8 +124,21 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    color: #D5DEEA;
 }
 
-#shopRegistrationForm button {
-    align-self: flex-start;
+#shopRegistrationForm button,
+#logoutButton {
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .profile-container {
+        margin: 26px auto 48px;
+    }
+
+    .profile-link {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

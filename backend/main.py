@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
 
-from sqlalchemy import func
+from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
 from backend.auth import (
@@ -32,7 +32,7 @@ from backend.config import (
     JWT_SECRET
 )
 
-from backend.database import engine, Base, get_db
+from backend.database import engine, Base, SessionLocal, get_db
 
 from backend.models import (
     Shop,
@@ -54,8 +54,47 @@ from backend.schemas import (
 
 from backend.diagnostics import build_diagnostic
 
-# Create any missing tables when the server starts.
-Base.metadata.create_all(bind=engine)
+# =========================================
+# DATABASE INITIALISATION AND DEMO LISTING
+# =========================================
+
+DEMO_SHOP_NAME = "UnGlitch Demo Repair Shop - TEST LISTING"
+
+
+def initialise_database() -> None:
+    """Create tables, apply the one required nullable-owner migration, and seed once."""
+    Base.metadata.create_all(bind=engine)
+
+    # Older deployments may have created shops.owner_id as NOT NULL.
+    # The clearly labelled demo listing has no real owner, so allow NULL.
+    if engine.dialect.name == "postgresql":
+        with engine.begin() as connection:
+            connection.execute(
+                text("ALTER TABLE shops ALTER COLUMN owner_id DROP NOT NULL")
+            )
+
+    db = SessionLocal()
+    try:
+        existing = db.query(Shop).filter(Shop.name == DEMO_SHOP_NAME).first()
+        if existing is None:
+            db.add(Shop(
+                owner_id=None,
+                name=DEMO_SHOP_NAME,
+                address="Fort, Mumbai, Maharashtra, India (fictional test location)",
+                lat=18.9322,
+                lng=72.8336,
+                devices="Phones,Tablets,Laptops",
+                warranty_days=30,
+            ))
+            db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+
+initialise_database()
 
 app = FastAPI(title="UnGlitch API")
 
@@ -122,7 +161,13 @@ def to_out(shop: Shop, avg=None, count=0) -> ShopOut:
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    # Make the deployment health check verify the database too, not just FastAPI.
+    try:
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+    except Exception:
+        raise HTTPException(status_code=503, detail="Database connection is unavailable")
+    return {"status": "ok", "database": "connected"}
 
 # =========================================
 # ACCESS CONTROL FOR DIAGNOSTIC FEATURES

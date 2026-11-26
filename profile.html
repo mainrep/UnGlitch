@@ -1,242 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>UnGlitch | Profile</title>
-
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="profile.css">
-
     <link rel="manifest" href="manifest.json">
-
     <meta name="theme-color" content="#0F111A">
-
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="config.js" defer></script>
     <script src="auth.js" defer></script>
     <script src="profile.js" defer></script>
     <script src="nav.js" defer></script>
-
 </head>
-
 <body>
-
 <header class="Header">
-
     <a href="index.html" class="logo-link">
-
-        <img class="logo-image"
-             src="logo.png"
-             alt="UnGlitch logo"
-             style="height: 36px; width: auto;">
-
+        <img class="logo-image" src="logo.png" alt="UnGlitch logo" style="height:36px;width:auto;">
         <span class="AppName">UnGlitch</span>
-
     </a>
-
-
-    <nav class="NavigationBar">
-
-        <a class="NavBar" href="index.html">
-            <span class="SpacedWord">Home</span>
-            <img src="homeDM.svg" alt="" class="icons">
-        </a>
-
-        <a class="NavBar" href="repair.html">
-            <span class="SpacedWord">Repair</span>
-            <img src="repairDM.svg" alt="" class="icons">
-        </a>
-
-        <a class="NavBar" href="map.html">
-            <span class="SpacedWord">Map</span>
-            <img src="mapDM.svg" alt="" class="icons">
-        </a>
-
-        <a class="NavBar active" href="profile.html">
-            <span class="SpacedWord">Profile</span>
-            <img src="profileDM.svg" alt="" class="icons">
-        </a>
-
+    <nav class="NavigationBar" aria-label="Primary navigation">
+        <a class="NavBar" href="index.html"><span class="SpacedWord">Home</span><img src="homeDM.svg" alt="" class="icons"></a>
+        <a class="NavBar" href="repair.html"><span class="SpacedWord">Repair</span><img src="repairDM.svg" alt="" class="icons"></a>
+        <a class="NavBar" href="map.html"><span class="SpacedWord">Map</span><img src="mapDM.svg" alt="" class="icons"></a>
+        <a class="NavBar active" href="profile.html"><span class="SpacedWord">Profile</span><img src="profileDM.svg" alt="" class="icons"></a>
     </nav>
-
 </header>
 
-
 <main class="profile-container">
-
     <section class="profile-intro">
-
         <span class="welcome-tag">YOUR ACCOUNT</span>
-
         <h1>Your Profile</h1>
-
-        <p>
-            Manage your UnGlitch account, view your activity
-            and access features designed for your account type.
-        </p>
-
+        <p>Manage your UnGlitch account, view your activity and access features designed for your account type.</p>
     </section>
 
+    <section id="signInSection" class="profile-panel">
+        <h2>Sign in to UnGlitch</h2>
+        <p>Choose how you intend to use UnGlitch before signing in.</p>
+        <label for="accountRole">Account Type</label>
+        <select id="accountRole">
+            <option value="">Choose account type</option>
+            <option value="consumer">Consumer</option>
+            <option value="shop">Repair Shop Owner</option>
+        </select>
+        <div id="googleSignInButton"></div>
+        <p id="authStatus" aria-live="polite"></p>
+    </section>
 
-    <!-- SIGN-IN -->
+    <section id="accountSection" class="profile-panel" hidden>
+        <h2 id="profileHeading">Welcome</h2>
+        <p id="profileName"></p>
+        <p id="profileEmail"></p>
+        <span id="profileRole" class="role-badge"></span>
+        <button id="logoutButton" class="secondary-button" type="button">Sign Out</button>
+    </section>
 
-    <!-- SIGN-IN -->
+    <section id="consumerProfile" class="profile-panel" hidden>
+        <h2>Consumer Account</h2>
+        <p>Explore repair services and understand your environmental contribution.</p>
+        <a href="repair.html" class="profile-link">Explore Device Repair</a>
+        <a href="calculator.html" class="profile-link">Calculate Environmental Impact</a>
+        <a href="map.html" class="profile-link">Find Repair Shops</a>
+    </section>
 
-<section id="signInSection" class="profile-panel">
+    <section id="shopProfile" class="profile-panel" hidden>
+        <h2>Repair Shop Account</h2>
+        <p>Register your repair shop so consumers can discover your services.</p>
+        <div id="shopInformation"></div>
+        <p id="shopStatus" aria-live="polite"></p>
+        <form id="shopRegistrationForm" hidden>
+            <h3>Register Your Shop</h3>
+            <label for="shopName">Shop Name</label>
+            <input type="text" id="shopName" required minlength="2" maxlength="100">
+            <label for="shopAddress">Shop Address</label>
+            <input type="text" id="shopAddress" required minlength="5" maxlength="200">
+            <fieldset>
+                <legend>Devices Serviced</legend>
+                <label><input type="checkbox" name="devices" value="Phones"> Phones</label>
+                <label><input type="checkbox" name="devices" value="Tablets"> Tablets</label>
+                <label><input type="checkbox" name="devices" value="Laptops"> Laptops</label>
+            </fieldset>
+            <label for="warrantyDays">Warranty Provided (Days)</label>
+            <input type="number" id="warrantyDays" min="0" max="730" value="30" required>
+            <button type="submit" class="primary-button">Register Shop</button>
+        </form>
+    </section>
+</main>
 
-    <h2>Sign in to UnGlitch</h2>
-
-    <p>
-        Choose how you intend to use UnGlitch before signing in.
-    </p>
-
-    <label for="accountRole">Account Type</label>
-
-    <select id="accountRole">
-
-        <option value="">Choose account type</option>
-
-        <option value="consumer">Consumer</option>
-
-        <option value="shop">Repair Shop Owner</option>
-
-    </select>
-
-    <div id="googleSignInButton"></div>
-
-    <p id="authStatus" aria-live="polite"></p>
-
-</section>
-
-
-<!-- SIGNED-IN ACCOUNT -->
-
-<section id="accountSection" class="profile-panel" hidden>
-
-    <h2 id="profileHeading">Welcome</h2>
-
-    <p id="profileName"></p>
-
-    <p id="profileEmail"></p>
-
-    <span id="profileRole" class="role-badge"></span>
-
-    <button id="logoutButton" class="secondary-button">
-        Sign Out
-    </button>
-
-</section>
-
-
-<!-- CONSUMER DASHBOARD -->
-
-<section id="consumerProfile" class="profile-panel" hidden>
-
-    <h2>Consumer Account</h2>
-
-    <p>
-        Explore repair services and understand your
-        environmental contribution.
-    </p>
-
-    <a href="repair.html" class="profile-link">
-        Explore Device Repair
-    </a>
-
-    <a href="calculator.html" class="profile-link">
-        Calculate Environmental Impact
-    </a>
-
-    <a href="map.html" class="profile-link">
-        Find Repair Shops
-    </a>
-
-</section>
-
-
-<!-- SHOP OWNER DASHBOARD -->
-
-<section id="shopProfile" class="profile-panel" hidden>
-
-    <h2>Repair Shop Account</h2>
-
-    <p>
-        Register your repair shop so consumers can
-        discover your services.
-    </p>
-
-    <div id="shopInformation"></div>
-
-    <p id="shopStatus" aria-live="polite"></p>
-
-    <form id="shopRegistrationForm" hidden>
-
-        <h3>Register Your Shop</h3>
-
-        <label for="shopName">Shop Name</label>
-
-        <input
-            type="text"
-            id="shopName"
-            required
-            minlength="2"
-            maxlength="100"
-        >
-
-        <label for="shopAddress">Shop Address</label>
-
-        <input
-            type="text"
-            id="shopAddress"
-            required
-            minlength="5"
-            maxlength="200"
-        >
-
-        <fieldset>
-
-            <legend>Devices Serviced</legend>
-
-            <label>
-                <input type="checkbox" name="devices" value="Phones">
-                Phones
-            </label>
-
-            <label>
-                <input type="checkbox" name="devices" value="Tablets">
-                Tablets
-            </label>
-
-            <label>
-                <input type="checkbox" name="devices" value="Laptops">
-                Laptops
-            </label>
-
-        </fieldset>
-
-        <label for="warrantyDays">
-            Warranty Provided (Days)
-        </label>
-
-        <input
-            type="number"
-            id="warrantyDays"
-            min="0"
-            max="730"
-            value="30"
-            required
-        >
-
-        <button type="submit" class="primary-button">
-            Register Shop
-        </button>
-
-    </form>
-
-</section>
+<footer class="home-footer"><p>UnGlitch — Repair more. Waste less.</p></footer>
+</body>
+</html>

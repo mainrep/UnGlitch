@@ -1,12 +1,16 @@
-from sqlalchemy import (
-    Column, Integer, String, Float, DateTime,
-    ForeignKey, UniqueConstraint, CheckConstraint, Text
-)
-
 from datetime import datetime, timezone
 
-from sqlalchemy import (Column, Integer, String, Float, DateTime,
-                        ForeignKey, UniqueConstraint, CheckConstraint)
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    Float,
+    DateTime,
+    ForeignKey,
+    UniqueConstraint,
+    CheckConstraint,
+    Text,
+)
 
 from backend.database import Base
 
@@ -30,7 +34,8 @@ class Shop(Base):
     __tablename__ = "shops"
 
     id = Column(Integer, primary_key=True, index=True)
-    owner_id = Column(Integer, ForeignKey("users.id"), unique=True, nullable=False)
+    # NULL is reserved for the explicitly labelled demonstration listing.
+    owner_id = Column(Integer, ForeignKey("users.id"), unique=True, nullable=True)
     name = Column(String, nullable=False)
     address = Column(String, nullable=False)
     lat = Column(Float, nullable=False)
@@ -53,32 +58,16 @@ class Rating(Base):
     comment = Column(String)
     created_at = Column(DateTime, default=utcnow)
 
-# =========================================
-# DIAGNOSTIC HISTORY
-# =========================================
 
 class DiagnosticAssessment(Base):
-
     __tablename__ = "diagnostic_assessments"
 
     id = Column(Integer, primary_key=True, index=True)
-
-    user_id = Column(
-        Integer,
-        ForeignKey("users.id"),
-        nullable=False
-    )
-
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     device_type = Column(String, nullable=False)
-
     model = Column(String)
-
     device_age = Column(String)
-
     issue_type = Column(String, nullable=False)
-
     symptoms = Column(Text)
-
     result_json = Column(Text, nullable=False)
-
     created_at = Column(DateTime, default=utcnow)

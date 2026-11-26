@@ -1,326 +1,143 @@
-/* =========================================
-   MAIN CONTAINER
-========================================= */
-
 .calculator-container {
-
-    width: min(1200px, 94%);
-
+    width: min(1100px, 94%);
     margin: 40px auto;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 24px;
-
 }
 
-
-/* =========================================
-   INTRODUCTION
-========================================= */
-
 .calculator-intro {
-
-    padding: 30px 10px;
-
+    padding: 20px 5px;
 }
 
 .calculator-intro h1 {
-
     font-size: clamp(2rem, 4vw, 3rem);
-
+    max-width: 850px;
     margin: 15px 0;
-
-    max-width: 800px;
-
 }
 
 .calculator-intro p {
-
     max-width: 750px;
-
     line-height: 1.7;
-
     color: #B8C3D3;
-
 }
 
-
-/* =========================================
-   PANELS
-========================================= */
-
 .calculator-panel {
-
     background: #181E2B;
-
     border: 1px solid #303B4D;
-
     border-radius: 18px;
-
     padding: 30px;
-
 }
 
 .calculator-panel h2 {
-
     margin-top: 0;
-
-    margin-bottom: 12px;
-
 }
 
 .calculator-panel p {
-
     line-height: 1.7;
-
     color: #CBD5E1;
-
 }
 
-
-/* =========================================
-   CALCULATOR FORM
-========================================= */
-
-.calculator-heading {
-
-    margin-bottom: 25px;
-
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin: 24px 0;
 }
 
-.calculator-form {
-
+.form-group {
     display: flex;
-
     flex-direction: column;
-
-    gap: 14px;
-
-    max-width: 550px;
-
+    gap: 9px;
 }
 
-.calculator-form label {
-
+.form-group label {
     font-weight: 600;
-
 }
 
-.calculator-form select {
-
+.form-group input,
+.form-group select {
     width: 100%;
-
-    padding: 14px;
-
+    padding: 13px;
     border: 1px solid #39465B;
-
     border-radius: 9px;
-
     background: #101521;
-
     color: #E2E8F0;
-
     font-size: 1rem;
-
 }
 
-.calculator-form button {
+.calculator-panel hr {
+    border: 0;
+    border-top: 1px solid #303B4D;
+    margin: 28px 0;
+}
 
-    margin-top: 8px;
-
-    align-self: flex-start;
-
+#calculateButton {
+    margin-top: 15px;
     cursor: pointer;
-
 }
 
-
-/* =========================================
-   CALCULATOR RESULTS
-========================================= */
+.results-panel {
+    scroll-margin-top: 100px;
+}
 
 .calculator-result {
-
-    margin-top: 35px;
-
-    padding: 25px;
-
-    background: #101521;
-
-    border: 1px solid #354C43;
-
-    border-radius: 14px;
-
+    margin-top: 25px;
 }
 
 .result-label {
-
     color: #8ACBA6;
-
     font-size: 0.8rem;
-
     font-weight: 700;
-
     letter-spacing: 1px;
-
-}
-
-.calculator-result h3 {
-
-    margin: 15px 0;
-
-    font-size: 1.4rem;
-
 }
 
 .carbon-number {
-
     font-size: clamp(2.2rem, 5vw, 3.5rem);
-
     font-weight: 800;
-
     color: #83C99D;
-
     margin: 20px 0;
-
 }
-
-
-/* =========================================
-   ENVIRONMENTAL EXPLANATION
-========================================= */
 
 .impact-note {
-
-    margin-top: 25px;
-
+    margin-top: 20px;
     padding: 20px;
-
     background: #192D27;
-
     border-left: 4px solid #65B88A;
-
     border-radius: 8px;
-
 }
 
-.impact-note h4 {
-
+.impact-note h3 {
     margin-top: 0;
-
     color: #8ACBA6;
-
 }
 
-
-/* =========================================
-   EMPTY STATE
-========================================= */
-
-.calculator-empty {
-
-    margin-top: 35px;
-
-    padding: 30px;
-
-    text-align: center;
-
-    background: #101521;
-
-    border: 1px solid #303B4D;
-
-    border-radius: 14px;
-
-}
-
-.calculator-empty .empty-icon {
-
-    font-size: 2.5rem;
-
-    margin-bottom: 15px;
-
-}
-
-.calculator-empty p {
-
-    max-width: 550px;
-
-    margin: 10px auto;
-
-}
-
-
-/* =========================================
-   SOURCES
-========================================= */
-
-.source-panel a {
-
-    color: #8ACBA6;
-
-    text-decoration: underline;
-
-    text-underline-offset: 3px;
-
-}
-
-
-/* =========================================
-   ACCESSIBILITY
-========================================= */
-
-.calculator-form select:focus-visible,
-.calculator-form button:focus-visible,
-.source-panel a:focus-visible {
-
+.calculator-panel:has(input:focus-visible) input:focus-visible,
+.calculator-panel select:focus-visible,
+.calculator-panel button:focus-visible {
     outline: 2px solid #8ACBA6;
-
     outline-offset: 3px;
-
 }
 
-
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
-
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .calculator-container {
-
         width: 92%;
-
         margin: 25px auto;
-
         gap: 18px;
-
     }
 
     .calculator-panel {
-
         padding: 20px;
-
     }
 
-    .calculator-intro {
-
-        padding: 20px 5px;
-
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    .calculator-form button {
-
+    #calculateButton {
         width: 100%;
-
-    }
-
-    .calculator-result {
-
-        padding: 18px;
-
     }
 
 }
