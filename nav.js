@@ -13,7 +13,7 @@
         if (!link) {
             link = document.createElement("a");
             link.id = "navLoginButton";
-            link.href = "profile.html";
+            link.href = "profile.html#signInSection";
             link.className = "nav-login-button";
             link.textContent = "Log In";
 
@@ -98,6 +98,9 @@
         }
 
         link.textContent = signedIn ? "My Account" : "Log In";
+        link.href = signedIn
+            ? "profile.html#accountSection"
+            : "profile.html#signInSection";
         link.setAttribute(
             "aria-label",
             signedIn ? "Open your UnGlitch account" : "Log in to UnGlitch"
